@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/revenue-infrastructure.schema.json",
+  "title": "SCIBASE Revenue Infrastructure",
+  "type": "object",
+  "required": ["plans", "customers", "subscriptions", "computeProducts", "meters", "licenseProducts", "events"],
+  "properties": {
+    "plans": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "name", "customerType", "billingCycles", "includedComputeCredits"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "customerType": { "enum": ["individual", "lab", "institution"] },
+          "billingCycles": { "type": "object" },
+          "includedComputeCredits": { "type": "number" },
+          "features": { "type": "array" },
+          "volumeDiscounts": { "type": "array" }
+        }
+      }
+    },
+    "customers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "type", "name", "billingEmail", "paymentMethods"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": { "enum": ["individual", "lab", "institution"] },
+          "name": { "type": "string" },
+          "billingEmail": { "type": "string" },
+          "paymentMethods": { "type": "array" },
+          "trials": { "type": "array" }
+        }
+      }
+    },
+    "subscriptions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "customerId", "planId", "billingCycle", "status", "priceCentsAfterDiscount"],
+        "properties": {
+          "id": { "type": "string" },
+          "customerId": { "type": "string" },
+          "planId": { "type": "string" },
+          "billingCycle": { "enum": ["monthly", "annual"] },
+          "status": { "type": "string" },
+          "priceCentsAfterDiscount": { "type": "number" }
+        }
+      }
+    },
+    "computeProducts": { "type": "object" },
+    "meters": { "type": "object" },
+    "topUps": { "type": "object" },
+    "invoices": { "type": "object" },
+    "licenseProducts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "name", "datasets", "anonymization", "accessModes", "privateContentIncluded"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "datasets": { "type": "array" },
+          "anonymization": { "type": "string" },
+          "accessModes": { "type": "array" },
+          "privateContentIncluded": { "type": "boolean" }
+        }
+      }
+    },
+    "events": { "type": "array" }
+  }
+}

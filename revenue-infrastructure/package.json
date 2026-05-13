@@ -1,0 +1,11 @@
+{
+  "name": "scibase-revenue-infrastructure",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained revenue infrastructure module for SCIBASE.AI issue #20.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/revenueInfrastructure.test.js"
+  }
+}
