@@ -23,6 +23,10 @@ npm.cmd run demo
 
 No external dependencies are required.
 
+## Demo
+
+![Collaborative research editor demo](docs/demo.gif)
+
 ## Intended Integration Path
 
 This module is deliberately dependency-free so it can be reviewed as a domain/service layer first. A production UI can bind the exported functions to document panes, live cursor updates, autosave calls, and reviewer task surfaces without changing the core collaboration rules.
