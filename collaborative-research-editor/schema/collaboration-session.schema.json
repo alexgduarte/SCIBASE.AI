@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/collaboration-session.schema.json",
+  "title": "SCIBASE Collaboration Session",
+  "type": "object",
+  "required": ["id", "title", "blocks", "versions"],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "collaborators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "section", "content"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["markdown", "latex", "code", "notebook", "data", "figure", "protocol", "metadata"]
+          },
+          "section": { "type": "string" },
+          "content": { "type": "string" },
+          "language": { "type": "string" },
+          "kernel": { "type": "string" },
+          "metadata": { "type": "object" }
+        }
+      }
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "actorId", "reason", "sequence", "blockHashes"],
+        "properties": {
+          "id": { "type": "string" },
+          "actorId": { "type": "string" },
+          "reason": { "type": "string" },
+          "sequence": { "type": "integer" },
+          "blockHashes": { "type": "object" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "scibase-collaborative-research-editor",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "node test/collaborativeResearchEditor.test.js",
+    "demo": "node demo/demo.js"
+  }
+}
