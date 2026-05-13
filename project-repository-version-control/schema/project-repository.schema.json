@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/project-repository.schema.json",
+  "title": "SCIBASE Project Repository",
+  "type": "object",
+  "required": ["id", "title", "structure", "metadata", "branches", "commits"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "structure": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "kind", "description"],
+        "properties": {
+          "path": { "type": "string" },
+          "kind": { "enum": ["manuscript", "data", "code", "notebook", "result", "protocol", "metadata"] },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["doi", "authors", "affiliations", "funding", "tags", "schemaOrg"],
+      "properties": {
+        "doi": { "type": ["string", "null"] },
+        "authors": { "type": "array" },
+        "affiliations": { "type": "array" },
+        "funding": { "type": "array" },
+        "tags": { "type": "array" },
+        "schemaOrg": { "type": "object" }
+      }
+    },
+    "branches": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["name", "head"],
+        "properties": {
+          "name": { "type": "string" },
+          "head": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "commits": { "type": "array" },
+    "tags": { "type": "array" },
+    "forks": { "type": "array" },
+    "mergeRequests": { "type": "array" },
+    "api": { "type": "object" },
+    "cli": { "type": "object" }
+  }
+}

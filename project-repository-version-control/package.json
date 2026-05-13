@@ -1,0 +1,11 @@
+{
+  "name": "scibase-project-repository-version-control",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained project repository and version-control module for SCIBASE.AI issue #10.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/repositoryVersionControl.test.js"
+  }
+}
