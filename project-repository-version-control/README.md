@@ -32,6 +32,10 @@ npm run demo
 
 No external services or packages are required.
 
+## Demo
+
+![Project repository version-control demo](docs/demo.gif)
+
 ## Example
 
 ```js
