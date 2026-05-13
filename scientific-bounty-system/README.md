@@ -36,6 +36,10 @@ npm run demo
 
 No external services or packages are required.
 
+## Demo
+
+![Scientific bounty system demo](docs/demo.gif)
+
 ## Example
 
 ```js
