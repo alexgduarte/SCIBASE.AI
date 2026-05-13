@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/scientific-bounty-system.schema.json",
+  "title": "SCIBASE Scientific Bounty System",
+  "type": "object",
+  "required": ["sponsors", "challenges", "teams", "submissions", "milestones", "payouts", "timeline"],
+  "properties": {
+    "sponsors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "name", "organizationType", "payoutAccount"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "organizationType": { "type": "string" },
+          "payoutAccount": { "type": "string" }
+        }
+      }
+    },
+    "challenges": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "sponsorId", "title", "deliverables", "evaluationRubric", "prizeAmountCents", "payoutSchedule", "escrow"],
+        "properties": {
+          "id": { "type": "string" },
+          "sponsorId": { "type": "string" },
+          "title": { "type": "string" },
+          "visibility": { "enum": ["public", "private"] },
+          "deliverables": { "type": "array" },
+          "evaluationRubric": { "type": "object" },
+          "timeline": { "type": "object" },
+          "prizeAmountCents": { "type": "number" },
+          "payoutSchedule": { "type": "array" },
+          "escrow": { "type": "object" },
+          "submissions": { "type": "array" },
+          "milestones": { "type": "array" }
+        }
+      }
+    },
+    "teams": { "type": "object" },
+    "submissions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "challengeId", "teamId", "mode", "workspace", "evaluations", "arbitration", "ipTransfer"],
+        "properties": {
+          "id": { "type": "string" },
+          "challengeId": { "type": "string" },
+          "teamId": { "type": "string" },
+          "mode": { "enum": ["named", "anonymous"] },
+          "workspace": { "type": "object" },
+          "evaluations": { "type": "array" },
+          "arbitration": { "type": "object" },
+          "ipTransfer": { "type": "object" }
+        }
+      }
+    },
+    "milestones": { "type": "object" },
+    "payouts": { "type": "object" },
+    "timeline": { "type": "array" }
+  }
+}

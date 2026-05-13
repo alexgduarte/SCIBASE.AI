@@ -1,0 +1,11 @@
+{
+  "name": "scibase-scientific-bounty-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained scientific bounty system module for SCIBASE.AI issue #18.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/scientificBountySystem.test.js"
+  }
+}
