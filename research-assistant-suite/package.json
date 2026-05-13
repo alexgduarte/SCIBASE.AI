@@ -1,0 +1,11 @@
+{
+  "name": "scibase-research-assistant-suite",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained AI-powered research assistant suite module for SCIBASE.AI issue #16.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/researchAssistantSuite.test.js"
+  }
+}

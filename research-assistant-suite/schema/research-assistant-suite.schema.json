@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/research-assistant-suite.schema.json",
+  "title": "SCIBASE Research Assistant Suite",
+  "type": "object",
+  "required": ["templates", "projects", "corpus", "researchers", "gapScans"],
+  "properties": {
+    "templates": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["domain", "criteria", "redFlagRules"],
+        "properties": {
+          "domain": { "type": "string" },
+          "criteria": { "type": "array" },
+          "redFlagRules": { "type": "array" }
+        }
+      }
+    },
+    "projects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "title", "domain", "manuscript", "files", "claims", "reproducibilityAttempts"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "domain": { "type": "string" },
+          "manuscript": { "type": "string" },
+          "claims": { "type": "array" },
+          "files": { "type": "object" },
+          "reportedOutputs": { "type": "array" },
+          "dependencies": { "type": "object" },
+          "reproducibilityAttempts": { "type": "array" }
+        }
+      }
+    },
+    "corpus": { "type": "array" },
+    "researchers": { "type": "object" },
+    "gapScans": { "type": "array" }
+  }
+}
