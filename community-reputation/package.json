@@ -1,0 +1,11 @@
+{
+  "name": "scibase-community-reputation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained community and reputation module for SCIBASE.AI issue #15.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/communityReputation.test.js"
+  }
+}

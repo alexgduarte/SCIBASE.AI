@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/community-reputation.schema.json",
+  "title": "SCIBASE Community Reputation",
+  "type": "object",
+  "required": ["users", "projects", "templates", "reviews", "comments", "contributions", "badges", "timeline"],
+  "properties": {
+    "users": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "name", "metrics", "reputationScore", "badges"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "institution": { "type": ["string", "null"] },
+          "domain": { "type": "string" },
+          "region": { "type": "string" },
+          "reviewHistory": { "type": "array" },
+          "visibleCredits": { "type": "array" },
+          "citationPages": { "type": "array" },
+          "metrics": { "type": "object" },
+          "reputationScore": { "type": "number" },
+          "badges": { "type": "array" }
+        }
+      }
+    },
+    "projects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "title", "domain", "ownerId", "visibility", "timeline"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "domain": { "type": "string" },
+          "ownerId": { "type": "string" },
+          "visibility": { "type": "string" },
+          "timeline": { "type": "array" },
+          "reviews": { "type": "array" },
+          "comments": { "type": "array" },
+          "contributions": { "type": "array" }
+        }
+      }
+    },
+    "templates": { "type": "object" },
+    "reviews": { "type": "object" },
+    "comments": { "type": "object" },
+    "contributions": { "type": "object" },
+    "endorsements": { "type": "object" },
+    "badges": { "type": "object" },
+    "timeline": { "type": "array" }
+  }
+}
