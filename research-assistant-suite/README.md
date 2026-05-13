@@ -32,6 +32,10 @@ npm run demo
 
 No external services or packages are required.
 
+## Demo
+
+![Research assistant suite demo](docs/demo.gif)
+
 ## Example
 
 ```js
