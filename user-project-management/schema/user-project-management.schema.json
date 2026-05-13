@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/user-project-management.schema.json",
+  "title": "SCIBASE User and Project Management",
+  "type": "object",
+  "required": ["users", "institutions", "projects", "auditLog"],
+  "properties": {
+    "users": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "identity", "profile", "auditLog"],
+        "properties": {
+          "id": { "type": "string" },
+          "identity": {
+            "type": "object",
+            "required": ["anonymous", "loginMethods", "providers", "twoFactor"],
+            "properties": {
+              "email": { "type": ["string", "null"] },
+              "emailVerified": { "type": "boolean" },
+              "anonymous": { "type": "boolean" },
+              "loginMethods": { "type": "object" },
+              "providers": { "type": "object" },
+              "twoFactor": { "type": "object" }
+            }
+          },
+          "profile": {
+            "type": "object",
+            "required": ["visibility", "metrics", "activityFeed"],
+            "properties": {
+              "visibility": { "enum": ["public", "private", "anonymous"] },
+              "metrics": { "type": "object" },
+              "activityFeed": { "type": "array" }
+            }
+          },
+          "auditLog": { "type": "array" }
+        }
+      }
+    },
+    "institutions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "name", "samlEntityId", "verifiedDomains"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "samlEntityId": { "type": "string" },
+          "verifiedDomains": { "type": "array" }
+        }
+      }
+    },
+    "projects": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["id", "title", "visibility", "workspace", "members", "auditLog"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "visibility": {
+            "enum": ["public", "private", "institutional-only", "invitation-only"]
+          },
+          "workspace": { "type": "object" },
+          "members": { "type": "object" },
+          "invitations": { "type": "array" },
+          "objectPermissions": { "type": "object" },
+          "shares": { "type": "array" },
+          "auditLog": { "type": "array" }
+        }
+      }
+    },
+    "auditLog": { "type": "array" }
+  }
+}

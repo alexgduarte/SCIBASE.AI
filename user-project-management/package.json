@@ -1,0 +1,11 @@
+{
+  "name": "scibase-user-project-management",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained user and project management module for SCIBASE.AI issue #11.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/userProjectManagement.test.js"
+  }
+}
