@@ -34,6 +34,10 @@ npm run demo
 
 No external services or packages are required.
 
+## Demo
+
+![Revenue infrastructure demo](docs/demo.gif)
+
 ## Example
 
 ```js
