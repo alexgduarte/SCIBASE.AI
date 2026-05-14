@@ -1,0 +1,11 @@
+{
+  "name": "scibase-scientific-knowledge-graph",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Self-contained scientific knowledge graph module for SCIBASE.AI issue #17.",
+  "type": "commonjs",
+  "scripts": {
+    "demo": "node demo/demo.js",
+    "test": "node test/scientificKnowledgeGraph.test.js"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scibase.ai/schemas/scientific-knowledge-graph.schema.json",
+  "title": "Scientific Knowledge Graph Node",
+  "type": "object",
+  "required": ["id", "type", "label", "canonicalName", "domains", "evidence"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable graph node identifier, e.g. concept:crispr."
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "author",
+        "affiliation",
+        "concept",
+        "dataset",
+        "doi",
+        "project",
+        "protocol",
+        "research-object",
+        "tool"
+      ]
+    },
+    "label": {
+      "type": "string"
+    },
+    "canonicalName": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "domains": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["context", "confidence", "createdAt"],
+        "properties": {
+          "sourceObjectId": { "type": ["string", "null"] },
+          "context": { "type": "string" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "createdAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
